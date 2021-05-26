@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Bookfinder</string>
+    <string name="title_text">Title</string>
+    <string name="author_text">Author</string>
+    <string name="publisher_text">Publisher</string>
+    <string name="title_hint">Love and Math</string>
+    <string name="author_hint">Edward Frenkel</string>
+    <string name="publisher_hint">Basic Books</string>
+    <string name="find_button">Find!</string>
+</resources>
