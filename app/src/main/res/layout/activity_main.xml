@@ -39,6 +39,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/title_edit"
             android:hint="@string/title_hint"
             tools:ignore="MissingConstraints" />
 
@@ -66,6 +67,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/author_edit"
             android:hint="@string/author_hint"
             tools:ignore="MissingConstraints" />
 
@@ -93,16 +95,30 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/publisher_edit"
             android:hint="@string/publisher_hint"
             tools:ignore="MissingConstraints" />
 
     </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/find_button"
         app:layout_constraintTop_toBottomOf="@id/publisher_layout"
-        tools:ignore="MissingConstraints" />
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:ignore="MissingConstraints">
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:id="@+id/find_button"
+            android:text="@string/find_button"
+            app:layout_constraintTop_toBottomOf="@id/publisher_layout"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
