@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import com.example.bookfinder.databinding.ActivityMainBinding
 import okhttp3.*
+import kotlinx.coroutines.*
 import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
@@ -13,10 +14,12 @@ class MainActivity : AppCompatActivity() {
     private val client = OkHttpClient();
 
 
-    private fun run(url: String): Response {
-        val request = Request.Builder().url(url).build()
-
-        return client.newCall(request).execute()
+    private fun run(url: String) {
+        GlobalScope.launch(Dispatchers.IO) {
+            val request = Request.Builder().url(url).build()
+            val t = client.newCall(request).execute()
+            Log.d("2",t.body.toString())
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,10 +49,8 @@ class MainActivity : AppCompatActivity() {
                 emptyPublisher=true
             }
             bookTitle=bookTitle.replace(" ","+")
+            run("https://www.googleapis.com/books/v1/volumes?q=love+math")
             Log.d("1",bookTitle)
-            Log.d("2",Constants.API_URL+bookTitle)
-            val t = run("https://www.googleapis.com/books/v1/volumes?q=love+math")
-            Log.d("3",t.toString())
         }
 
     }
